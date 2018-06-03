@@ -26,6 +26,7 @@ public class ZoneBase implements ConfigurationSerializable {
         Setting = new ZoneSetting(bound1, bound2);
         All.add(this);
         MangoUtils.Log("New Zone in " + Setting.Quad1.toString() + " to" + Setting.Quad2.toString());
+        SaveStates();
     }
 
     Boolean toDelete = false;
@@ -59,7 +60,9 @@ public class ZoneBase implements ConfigurationSerializable {
         YamlConfiguration ZoneConfig = YamlConfiguration.loadConfiguration(new File(Mango_Core.Folder, "ZoneConfig"));
         if(ZoneConfig.contains("Zones.Instances"))
         {
-            All = (ArrayList<ZoneBase>)ZoneConfig.get("Zones.Instances");
+            MangoUtils.Log("Loading Zones");
+            ArrayList<ZoneBase> zones = (ArrayList<ZoneBase>)ZoneConfig.get("Zones.Instances");
+            if(zones!=null) All = zones;
         }
     }
 
