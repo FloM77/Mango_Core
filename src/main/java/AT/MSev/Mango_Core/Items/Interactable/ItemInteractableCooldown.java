@@ -1,6 +1,6 @@
-package AT.MSev.Mango_Core.Items;
+package AT.MSev.Mango_Core.Items.Interactable;
 
-import AT.MSev.Mango_Core.Utils.MangoUtils;
+import AT.MSev.Mango_Core.Items.Interactable.ItemInteractable;
 import AT.MSev.Mango_Core.Utils.Security;
 import AT.MSev.Mango_Core.Utils.Time;
 import org.bukkit.entity.Player;

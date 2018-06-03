@@ -1,8 +1,6 @@
 package AT.MSev.Mango_Core.Blocks;
 
 import AT.MSev.Mango_Core.Items.ItemBase;
-import AT.MSev.Mango_Core.Items.ItemInteractable;
-import AT.MSev.Mango_Core.Utils.MangoUtils;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;

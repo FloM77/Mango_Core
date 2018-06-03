@@ -2,12 +2,11 @@ package AT.MSev.Mango_Core;
 
 import AT.MSev.Mango_Core.Blocks.BlockBaseHandler;
 import AT.MSev.Mango_Core.Blocks.BlockInstance;
-import AT.MSev.Mango_Core.Items.ItemInteractableHandler;
+import AT.MSev.Mango_Core.Items.Interactable.ItemInteractableHandler;
 import AT.MSev.Mango_Core.Utils.MangoUtils;
 import AT.MSev.Mango_Core.Utils.TimedEvent;
 import org.bukkit.Bukkit;
 import org.bukkit.NamespacedKey;
-import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.configuration.serialization.ConfigurationSerialization;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -36,7 +35,7 @@ public class Mango_Core extends JavaPlugin {
 
         getServer().getPluginManager().registerEvents(new ItemInteractableHandler(), this);
         getServer().getPluginManager().registerEvents(new BlockBaseHandler(), this);
-        getServer().getPluginManager().registerEvents(new Handler(), this);
+        getServer().getPluginManager().registerEvents(new Handler(this), this);
     }
     @Override
     public void onDisable() {

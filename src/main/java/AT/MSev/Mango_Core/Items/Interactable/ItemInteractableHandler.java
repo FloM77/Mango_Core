@@ -1,5 +1,7 @@
-package AT.MSev.Mango_Core.Items;
+package AT.MSev.Mango_Core.Items.Interactable;
 
+import AT.MSev.Mango_Core.Items.Interactable.ItemInteractable;
+import AT.MSev.Mango_Core.Items.ItemBase;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
