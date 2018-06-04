@@ -3,6 +3,8 @@ package AT.MSev.Mango_Core.Utils;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 
 import static org.bukkit.Bukkit.getLogger;
@@ -29,5 +31,30 @@ public class MangoUtils {
         if(DebugMode) {
             getLogger().info(message);
         }
+    }
+
+    public static Object GetPrivateField(String fieldName, Class clazz, Object object)
+    {
+        Field field;
+        Object o = null;
+
+        try
+        {
+            field = clazz.getDeclaredField(fieldName);
+            field.setAccessible(true);
+            o = field.get(object);
+        } catch(NoSuchFieldException e) { e.printStackTrace(); } catch(IllegalAccessException e) { e.printStackTrace(); }
+
+        return o;
+    }
+
+    public static Method GetPrivateMethod(String methodName, Class clazz, Class<?>... params)
+    {
+        try{
+        Method m = clazz.getDeclaredMethod(methodName, params);
+        m.setAccessible(true);
+        return m;
+        } catch(NoSuchMethodException e) { e.printStackTrace(); }
+        return null;
     }
 }

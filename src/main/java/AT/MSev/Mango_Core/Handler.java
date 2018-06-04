@@ -1,7 +1,5 @@
 package AT.MSev.Mango_Core;
 
-import AT.MSev.Mango_Core.Blocks.BlockBase;
-import AT.MSev.Mango_Core.Items.ItemBase;
 import AT.MSev.Mango_Core.Items.Interactable.ItemInteractable;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -16,9 +14,6 @@ public class Handler implements Listener {
     void OnLogin(PlayerJoinEvent e)
     {
         Player p = e.getPlayer();
-        new ItemInteractable("ItemName1", Material.STICK).Give(p, true);
-        new ItemBase("ItemName2", Material.BONE).Give(p, true);
-        new BlockBase("Block1", Material.DIAMOND_BLOCK).Give(p, true);
 
         //new ZoneTest(p.getLocation(), (p.getLocation().clone().add(100, 100, 100)));
     }

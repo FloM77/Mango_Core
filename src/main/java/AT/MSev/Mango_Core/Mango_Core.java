@@ -2,11 +2,14 @@ package AT.MSev.Mango_Core;
 
 import AT.MSev.Mango_Core.Blocks.BlockBaseHandler;
 import AT.MSev.Mango_Core.Blocks.BlockInstance;
+import AT.MSev.Mango_Core.Entity.EntityNPC.VillagerNPC;
 import AT.MSev.Mango_Core.Items.Interactable.ItemInteractableHandler;
 import AT.MSev.Mango_Core.Utils.MangoUtils;
+import AT.MSev.Mango_Core.Utils.NMSUtils;
 import AT.MSev.Mango_Core.Utils.TimedEvent;
 import AT.MSev.Mango_Core.Zones.Interactable.ZoneInteractable;
 import AT.MSev.Mango_Core.Zones.ZoneBase;
+import net.minecraft.server.v1_12_R1.BlockPressurePlateBinary;
 import org.bukkit.Bukkit;
 import org.bukkit.NamespacedKey;
 import org.bukkit.configuration.serialization.ConfigurationSerialization;
@@ -45,6 +48,8 @@ public class Mango_Core extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new ItemInteractableHandler(), this);
         getServer().getPluginManager().registerEvents(new BlockBaseHandler(), this);
         getServer().getPluginManager().registerEvents(new Handler(), this);
+
+        NMSUtils.registerEntity("npc_villager", NMSUtils.Type.VILLAGER, VillagerNPC.class, false);
     }
     @Override
     public void onDisable() {
