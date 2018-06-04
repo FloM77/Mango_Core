@@ -2,6 +2,7 @@ package AT.MSev.Mango_Core;
 
 import AT.MSev.Mango_Core.Blocks.BlockBaseHandler;
 import AT.MSev.Mango_Core.Blocks.BlockInstance;
+import AT.MSev.Mango_Core.Entity.EntityNPC.NPCHandler;
 import AT.MSev.Mango_Core.Entity.EntityNPC.VillagerNPC;
 import AT.MSev.Mango_Core.Items.Interactable.ItemInteractableHandler;
 import AT.MSev.Mango_Core.Utils.MangoUtils;
@@ -48,6 +49,7 @@ public class Mango_Core extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new ItemInteractableHandler(), this);
         getServer().getPluginManager().registerEvents(new BlockBaseHandler(), this);
         getServer().getPluginManager().registerEvents(new Handler(), this);
+        getServer().getPluginManager().registerEvents(new NPCHandler(), this);
 
         NMSUtils.registerEntity("npc_villager", NMSUtils.Type.VILLAGER, VillagerNPC.class, false);
     }
