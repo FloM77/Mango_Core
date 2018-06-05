@@ -47,13 +47,15 @@ public class ItemBase {
     }
 
     Random random = new Random();
-    public void Give(Player p, Boolean stackable)
+    public void Give(Player p, Boolean stackable, int amount)
     {
-        if(!stackable){
-            int randomID = random.nextInt(Integer.MAX_VALUE);
-            SetTag("Unstackable", new NBTTagInt(randomID));
+        for(int i=0;i<amount;i++) {
+            if (!stackable) {
+                int randomID = random.nextInt(Integer.MAX_VALUE);
+                SetTag("Unstackable", new NBTTagInt(randomID));
+            }
+            p.getInventory().addItem(Physical);
         }
-        p.getInventory().addItem(Physical);
     }
 
     public static ItemBase Get(String exactName)

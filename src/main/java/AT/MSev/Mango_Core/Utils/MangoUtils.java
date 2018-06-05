@@ -1,5 +1,6 @@
 package AT.MSev.Mango_Core.Utils;
 
+import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
@@ -51,10 +52,32 @@ public class MangoUtils {
     public static Method GetPrivateMethod(String methodName, Class clazz, Class<?>... params)
     {
         try{
-        Method m = clazz.getDeclaredMethod(methodName, params);
-        m.setAccessible(true);
-        return m;
+            Method m = clazz.getDeclaredMethod(methodName, params);
+            m.setAccessible(true);
+            return m;
         } catch(NoSuchMethodException e) { e.printStackTrace(); }
         return null;
+    }
+
+    public static Method GetPrivateMethod(String methodName, Class clazz)
+    {
+        try{
+            Method m = clazz.getDeclaredMethod(methodName);
+            m.setAccessible(true);
+            return m;
+        } catch(NoSuchMethodException e) { e.printStackTrace(); }
+        return null;
+    }
+
+    public static ArrayList<ItemStack> GetCustomItemsInInventory(Player p)
+    {
+        ArrayList<ItemStack> ret = new ArrayList<ItemStack>();
+        for(ItemStack is : p.getInventory().getContents())
+        {
+            if(NBTManager.GetTag(is, "Custom") != null) {
+                ret.add(is);
+            }
+        }
+        return ret;
     }
 }

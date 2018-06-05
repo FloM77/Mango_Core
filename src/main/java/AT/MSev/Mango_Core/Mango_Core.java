@@ -34,6 +34,7 @@ public class Mango_Core extends JavaPlugin {
 
     @Override
     public void onEnable() {
+
         plugin = this;
 
         key = new NamespacedKey(this, this.getDescription().getName());
